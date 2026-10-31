@@ -1,0 +1,282 @@
+/* VARIABLES Y REGLAS GLOBALES */
+:root {
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --danger-color: #ef4444;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+    --radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem 1rem;
+}
+
+/* 2. ESTRUCTURA Y ENCABEZADO */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 3. NOTIFICACIONES Y DASHBOARD DE MÉTRICAS */
+.notification {
+    padding: 1rem;
+    border-radius: var(--radius);
+    background-color: #fee2e2;
+    color: var(--danger-color);
+    border: 1px solid #fca5a5;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.card-metric {
+    background-color: var(--card-bg);
+    padding: 1.2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.card-metric h3 {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.card-metric span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* 4. FORMULARIO Y CONTROLES DE FILTRADO */
+#task-form {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+#task-title {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+#task-priority, 
+button {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+.controls-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.controls-section input, 
+.controls-section select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: var(--card-bg);
+}
+
+/* 5. LISTA Y TARJETAS DE TAREAS */
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.task-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Colores de borde lateral según prioridad */
+.task-item.priority-Alta { border-left-color: var(--danger-color); }
+.task-item.priority-Media { border-left-color: var(--warning-color); }
+.task-item.priority-Baja { border-left-color: var(--success-color); }
+
+/* Estado completado */
+.task-item.completed {
+    opacity: 0.65;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+}
+
+/* 6. PÍLDORAS DE PRIORIDAD (BADGES) */
+.badge-priority {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.badge-Alta {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+.badge-Media {
+    background-color: #ffedd5;
+    color: #ea580c;
+    border: 1px solid #fed7aa;
+}
+
+.badge-Baja {
+    background-color: #dcfce7;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+/* 7.FOOTER */
+.footer {
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    color: #64748b;
+}
+
+.footer-content span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.footer-subtext {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
+
+/* 8. RESPONSIVIDAD (MEDIA QUERIES) */
+@media (max-width: 600px) {
+    .dashboard, 
+    .controls-section, 
+    #task-form {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+}
