@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskManager — Gestor de Tareas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>TaskManager App</h1>
+        <p>Tu productividad al día: almacenamiento sin conexión y sincronización en tiempo real.</p>
+    </header>
+
+    <main class="container">
+        <!-- Notificación visual de errores -->
+        <div id="notification" class="notification hidden"></div>
+
+        <!-- Dashboard de Métricas -->
+        <section class="dashboard">
+            <div class="card-metric">
+                <h3>Total Tareas</h3>
+                <span id="total-tasks">0</span>
+            </div>
+            <div class="card-metric">
+                <h3>Pendientes</h3>
+                <span id="pending-tasks">0</span>
+            </div>
+            <div class="card-metric">
+                <h3>Completadas</h3>
+                <span id="completed-tasks">0</span>
+            </div>
+        </section>
+
+        <!-- Formulario para Nueva Tarea -->
+        <section class="task-form-section">
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Escribe el título de la tarea..." required>
+                <select id="task-priority">
+                    <option value="Baja">Prioridad Baja</option>
+                    <option value="Media" selected>Prioridad Media</option>
+                    <option value="Alta">Prioridad Alta</option>
+                </select>
+                <button type="submit" id="btn-save">Agregar Tarea</button>
+            </form>
+        </section>
+
+        <!-- Controles de Búsqueda, Filtro y Ordenamiento -->
+        <section class="controls-section">
+            <input type="text" id="search-input" placeholder="🔍 Buscar tarea por título...">
+            
+            <select id="filter-status">
+                <option value="all">Todas</option>
+                <option value="pending">Pendientes</option>
+                <option value="completed">Completadas</option>
+            </select>
+
+            <select id="sort-by">
+                <option value="date">Ordenar por Fecha</option>
+                <option value="priority">Ordenar por Prioridad</option>
+            </select>
+        </section>
+
+        <!-- Lista de Tareas -->
+        <section class="task-list-section">
+            <ul id="task-list" class="task-list"></ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+    <div class="footer-content">
+        <p><strong>TaskManager App</strong> &copy; 2026 — Desarrollado por <span>Dennis Romero</span></p>
+        <p class="footer-subtext">Universidad ECOTEC — Programación de Sistemas Web</p>
+        <div class="footer-links">
+            <a href="https://github.com/DRomero002" target="_blank" rel="noopener noreferrer">GitHub Académico</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/dennis-romero-cabrera-9b60b0216/" target="_blank" rel="noopener noreferrer">Mi Perfil de LinkedIn</a>
+        </div>
+    </div>
+    </footer>
+
+    <!-- Carga del script con soporte para Módulos ES6 -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
