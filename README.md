@@ -42,6 +42,7 @@ El proyecto consiste en el desarrollo de una aplicación web interactiva de gest
 
 El proyecto adopta la **Opción A** del componente de investigación técnica, organizando el código mediante módulos nativos de JavaScript (`import` / `export`):
 
+```text
 TaskManager/
 ├── index.html          # Estructura semántica de la aplicación
 ├── css/
@@ -53,7 +54,7 @@ TaskManager/
 │   └── ui.js           # Módulo para manipulación del DOM, badges y métricas
 ├── AI_DECLARATION.md   # Declaración transparente y transparente del uso de IA
 └── README.md           # Documentación oficial del proyecto
-
+```
 ---
 
 ## 🎨 Diseño e Interfaz (UI/UX)
